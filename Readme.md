@@ -20,7 +20,8 @@ The underlying system files that a docker container uses are stored in [read-onl
 Containers that need to write a lot of data should consider using some form of [data volume](https://docs.docker.com/engine/tutorials/dockervolumes/) for increased performance, and where needed, for file persistence (e.g., project or homework output); while containers are persisted, an accidental ‘docker rm’, issued directly or as part of another script like ‘docker-compose down’ will be the end of the road for any files stored in the thin read/write layer for that container. Note that a data volume can be shared among multiple containers, so care should be taken to ensure that any possible clobbering of files in a shared data volume is acceptable or preventable.
 
 # Docker Images in the Workshop
-rstudio_workshop (RStudio)
+
+## rstudio_workshop (RStudio)
 
 This is primarily based on the [rocker/rstudio](https://hub.docker.com/r/rocker/rstudio/) image. We use a custom modification to the official rstudio image that allows for ssh-access and includes a few more utilities. This image is based on the Ubuntu Linux distribution.
 
@@ -77,8 +78,7 @@ ssh rstudio@<host OS IP or hostname> -p 8622
 
 ```
 
-
-# If you are on the host OS and want to connect without SSH, you can directly attach to a bash shell:
+If you are on the host OS and want to connect without SSH, you can directly attach to a bash shell:
 
 ```
 docker exec -it <container name or ID> /bin/bash
@@ -95,3 +95,6 @@ where we bumped up the host OS ports by 1 in each case. As far as the container 
 world, we are now using port 8788 for RStudio and port 8623 for SSH.
 
 
+# More Docker resources
+
+* [Use the Docker command line](https://docs.docker.com/engine/reference/commandline/cli/)
